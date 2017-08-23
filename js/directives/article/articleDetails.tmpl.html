@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 col-sm-offset-3 main_divStyle">
+
+      <ul class="ul_style">
+        <li class="li_dateStyle_author"> {{ details.authorName }}  </li>
+        <li class="li_dateStyle_date"> {{ details.dateAdded }} </li>
+        <li>
+           <img src="{{ details.mainPic }}">
+        </li>
+        <li class="li_dateStyle_title">Title: {{ details.title }} </li>
+        <li class="li_dateStyle_body">Body: {{ details.body }} </li>
+        <li class="li_dateStyle_body"> Intro:  {{ details.intro }} </li>
+        <li>
+          <a class="li_dateStyle_comments">Comments ( {{ articledetails.comments.length}} )
+            <span class="glyphicon glyphicon-comment"></span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+
+  </div>
+</div>

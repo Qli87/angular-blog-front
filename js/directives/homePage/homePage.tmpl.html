@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-6 col-sm-offset-3 main_divStyle">
+
+      <ul class="ul_style" ng-repeat="article in homepage.articals" >
+        <li class="li_dateStyle_date"> {{ article.dateAdded }} </li>
+        <li class="li_dateStyle_author"> {{ article.authorName }}  </li>
+        <li>
+           <img src="{{ article.mainPic }}">
+        </li>
+        <li class="li_dateStyle_title"> {{ article.title }} </li>
+        <li class="li_dateStyle_body"> {{ article.body | limitTo: 250 }} </li>
+        <ul class="ul_style">
+          <li> <a ng-click="homepage.readMore(article.id)"> << Read more </a></li>
+        </ul>
+      </ul>
+
+    </div>
+
+  </div>
+</div>

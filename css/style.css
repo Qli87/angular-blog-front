@@ -1,0 +1,36 @@
+.main_divStyle {
+  padding-top: 60px;
+}
+.ul_style {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.li_dateStyle_date {
+  font-size: 9px;
+}
+.li_dateStyle_author {
+  font-size: 12px;
+  font-weight: bold;
+  font-style: italic;
+  padding-bottom: 10px;
+}
+
+.li_dateStyle_title {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 5px;
+  padding-bottom: 10px;
+}
+
+.li_dateStyle_body {
+  font-size: : 11px;
+  font-style: italic;
+  padding-bottom: 10px;
+}
+
+.li_dateStyle_comments {
+  font-size: : 15px;
+  font-style: italic;
+}
