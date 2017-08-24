@@ -12,7 +12,7 @@
         <li class="li_dateStyle_title"> {{ article.title }} </li>
         <li class="li_dateStyle_body"> {{ article.body | limitTo: 250 }} </li>
         <ul class="ul_style">
-          <li> <a ng-click="homepage.readMore(article.id)"> << Read more </a></li>
+          <li> <a ng-click="homepage.readMore(article.id)"> {{ homepage.READ_MORE_TXT }} </a></li>
         </ul>
       </ul>
 

@@ -26,6 +26,9 @@ angular.module('Blogfront')
           $location.path('/articles/'+article_id);
         }
 
+        //testing for translations
+        this.READ_MORE_TXT = "<<< Detaljnije";
+
       },
       link : function(scope, element, attrs, ctrl) {
 

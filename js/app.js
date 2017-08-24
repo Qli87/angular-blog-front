@@ -1,5 +1,15 @@
-angular.module('Blogfront', ['ngRoute'])
-  .config(function($routeProvider, $httpProvider) {
+var app = angular.module('Blogfront', ['ngRoute']);
+
+//add some configuration here
+//TODO investigate how to store this in separate file!!!
+app.constant('CONFIG', {
+    baseUrl: 'http://localhost:8000',
+    dbName: 'ascrum'
+});
+
+
+
+app.config(function($routeProvider, $httpProvider) {
     'use strict';
 
     $routeProvider
@@ -14,6 +24,5 @@ angular.module('Blogfront', ['ngRoute'])
     .otherwise({
       redirectTo: '/articles'
     });
-
 
   });
