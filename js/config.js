@@ -10,5 +10,6 @@
 
 angular.module('CONFIGURATION', [])
   // .constant('FOOTER_URL', 'www.google.com')
-  .constant('GET_ARTICALS', 'http://localhost:8000/articles');
+  .constant('GET_ARTICALS', 'http://localhost:8000/articles')
+  .constant('GET_COMMENTS', 'http://localhost:8000/comments');
   // .constant('GET_ARTICAL_DETAILS', 'http://localhost:8000/articles/');

@@ -18,9 +18,29 @@
         <li class="li_dateStyle_body">Body: {{ details.body }} </li>
         <li class="li_dateStyle_body"> Intro:  {{ details.intro }} </li>
         <li class="li_dateStyle_addComment" ng-if="articledetails.comments.length > 0">
-          <a class="li_dateStyle_comments">Comments ( {{ articledetails.comments.length}} )
+          <a class="li_dateStyle_comments" ng-click="articledetails.showComments_fn()">Comments ( {{ articledetails.comments.length}} )
             <span class="glyphicon glyphicon-comment"></span>
           </a>
+          <ul class="ul_style" ng-repeat = "comment in articledetails.comments" ng-if="articledetails.showComments">
+            <li class="li_dataStyle_commentList">
+              <div class="div_commentStyle">
+                Name: {{ comment.authorName }}  </br>
+                E-mail: {{ comment.authorEmail }}   </br>
+                Comment: {{ comment.body}}  </br>
+                <a ng-click="articledetails.showReply_fn()">
+                  <span> Reply </span>
+                </a>
+              </div>
+
+              <!-- {{ comment.id }} -->
+              <!-- <div ng-if="articledetails.showReply(comment.id)">
+                <textarea  class="textArea_style" rows="3"></textarea>
+                <button class="btn btn-default btn-sm btn_addComment_style">Add comment</button>
+              <div> -->
+
+
+            </li>
+          </ul>
           <li class="li_dateStyle_addComment" ng-if="articledetails.comments.length == 0" >
             <a >No comments for this text</a>
           </li>
