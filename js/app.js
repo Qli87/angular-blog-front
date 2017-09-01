@@ -1,4 +1,12 @@
-angular.module('Blogfront', ['ngRoute'])
+//providers
+//['angularMoment']
+
+var dependecies = ['ngRoute', 'CONFIGURATION', 'angularMoment'];
+var blogFront = angular.module('Blogfront', dependecies);
+
+
+// angular.module('Blogfront', dependecies)
+  blogFront
   .config(function($routeProvider, $httpProvider) {
     'use strict';
 
@@ -13,7 +21,6 @@ angular.module('Blogfront', ['ngRoute'])
     })
     .otherwise({
       redirectTo: '/articles'
-    });
+    })
 
-
-  });
+});

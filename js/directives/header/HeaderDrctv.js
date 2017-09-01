@@ -1,4 +1,5 @@
-angular.module('Blogfront')
+// angular.module('Blogfront')
+  blogFront
   .directive('header', function() {
     'use strict';
 
@@ -14,7 +15,7 @@ angular.module('Blogfront')
         var ctrl = this;
 
 
-        
+
 
       },
       link : function(scope, element, attrs, ctrl) {
