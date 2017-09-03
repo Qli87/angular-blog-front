@@ -1,7 +1,7 @@
 //providers
 //['angularMoment']
 
-var dependecies = ['ngRoute', 'CONFIGURATION', 'angularMoment'];
+var dependecies = ['ngRoute', 'CONFIGURATION', 'angularMoment',  'ui.bootstrap'];
 var blogFront = angular.module('Blogfront', dependecies);
 
 

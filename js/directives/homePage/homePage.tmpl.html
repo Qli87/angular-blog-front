@@ -3,7 +3,7 @@
 
     <div class="col-sm-6 col-sm-offset-3 main_divStyle">
 
-      <ul class="ul_style" ng-repeat="article in homepage.articals" >
+      <ul class="ul_style" ng-repeat="article in homepage.articles" >
         <li class="li_dateStyle_date"> {{ article.dateAdded }} </li>
         <li class="li_dateStyle_author"> {{ article.authorName }}  </li>
         <li>
@@ -15,6 +15,12 @@
           <li> <a ng-click="homepage.readMore(article.id)"> << Read more </a></li>
         </ul>
       </ul>
+
+      <!-- ng-controller="HomePageCtrl" -->
+      <div class="col-sm-10 col-sm-offset-1" >
+        <pagination ng-model="homepage.currentPage" total-items="homepage.todos.length" max-size="homepage.maxSize" boundary-links="true">
+        </pagination>
+      </div>
 
     </div>
 

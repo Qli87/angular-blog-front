@@ -15,17 +15,6 @@
     };
 
     exports.getArtical_details = function (id) {
-
-      // var config = {
-      //   params : {
-      //     id : id
-      //   }
-      // };
-
-      // var data;
-      //  'http://www.mocky.io/v2/599b6bfd120000ed02d64588'
-      // $http.post(GET_ARTICAL_DETAILS, data, config)
-
       return $http.get(GET_ARTICALS+"/"+id).then(function(response){
         // console.log(response.data);
         return response.data;

@@ -12,24 +12,68 @@
       templateUrl: 'js/directives/article/articleDetails.tmpl.html',
       controllerAs: 'articledetails',
 
-      controller: function ($filter, ArticleFactory, $scope, moment, CommentFactory, $routeParams) {
+      controller: function ($filter, ArticleFactory, $scope, moment, CommentFactory, $routeParams, $route, $anchorScroll, $location, $window) {
 
         var ctrl = this;
         this.comments = [];
         this.showComments = false;
         this.showReply = false;
+        this.errors = {};
+
 
         this.commentDetails = {
-          name : '',
-          email : '',
-          comment : ''
+          authorName : '',
+          authorEmail : '',
+          body : '',
+          parentId: '',
+          articleId: $routeParams.id
         };
+
+
+        // TODO refreshPage - ok, has-error komentari
+        //return msg.
+        //Pogledati kako da provjeravam
+        // status http code, 200 success, 400 bad...
+        this.sendComment = function() {
+
+          CommentFactory.sendComment(this.commentDetails).then(function(response) {
+            if(response.status = true) {
+              //mozda je i nepotrebno kada se odradi ledole page?
+              ctrl.resetValues();
+              $route.reload();
+            } else {
+              // error za komentar
+              ctrl.errors.wrongParameters = true;
+            }
+            console.log(ctrl.errors.wrongParameters);
+          });
+        };
+
+
+        this.resetValues = function() {
+          console.log('restart');
+          this.commentDetails.authorName = '',
+          this.commentDetails.authorEmail = '',
+          this.commentDetails.body = '',
+          this.commentDetails.articleId = '',
+          this.commentDetails.parentId = ''
+        }
+
+        this.replyClick = function(parentId) {
+          this.commentDetails.parentId = parentId;
+          console.log(this.commentDetails);
+          $location.hash('cmntName');
+          $anchorScroll();
+          var name =  $window.document.getElementById('cmntName');
+          name.focus();
+        }
 
 
         CommentFactory.getComments_forArtical($routeParams.id).then(function(response) {
           ctrl.comments = response.data;
           console.log(ctrl.comments);
         });
+
 
         this.showComments_fn = function() {
           if(ctrl.showComments == false) {
@@ -40,7 +84,6 @@
         };
 
         this.showReply_fn = function(commentId) {
-          console.log(commentId);
           if(ctrl.showReply == false) {
             ctrl.showReply = true;
           } else {
@@ -50,11 +93,8 @@
 
         // console.log(moment("20111031", "YYYYMMDD").fromNow());
 
-        this.addComment = function(name, email, comment){
-          console.log('ok');
-          console.log(name);
-          console.log(email);
-          console.log(comment);
+        this.addComment = function(articleDetailsObj){
+            console.log(this.commentDetails);
         }
 
         // $scope.emailPattern = (function() {

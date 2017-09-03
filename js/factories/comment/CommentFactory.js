@@ -10,8 +10,28 @@
       return $http.get(GET_COMMENTS+'/'+articleId).then(function(response){
         return response.data;
       });
-    };
+    }
+
+
+
+    exports.sendComment = function (commentDetails) {
+
+      var transform = function(data){
+        return $.param(data);
+      }
+
+      var config =  {
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+    }
+
+      return $http.post('http://localhost:8000/comments', commentDetails, config).then(function(response) {
+        console.log(response.data);
+        return response.data;
+      });
+    }
 
 
     return exports;
+
   }]);
