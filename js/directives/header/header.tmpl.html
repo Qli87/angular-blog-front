@@ -1,5 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluide">
+  <div class="container-fluide" ng-controller="TranslationsCtrl">
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
         <span class="icon-bar"></span>
@@ -13,18 +14,52 @@
     <div class="navbar-collapse collapse" id="navBar">
       <ul class="nav navbar-nav navbar-center">
         <li>
-          <a href="#homePage" i18n="header menu | Introduction for home@@headerMenuHome">Home</a>
+          <a href="#homePage">
+            {{ 'home' | translate }}
+          </a>
         </li>
         <li>
-          <a>About</a>
+          <a>
+            {{ 'about' | translate }}
+          </a>
         </li>
         <li>
-          <a>Contact</a>
+          <a>
+            {{ 'contact' | translate }}
+          </a>
         </li>
+      </ul>
+
+      <!-- <span ng-if="showSerbian" ng-click="changeLanguage('sr')">
+        <img class="img_styleFlag" src="images/serbian.png">
+      </span>
+      <span ng-if="showEnglish" ng-click="changeLanguage('en')">
+        <img class="img_styleFlag" src="images/british.png">
+      </span> -->
+
+
+      <ul class="nav navbar-nav navbar-right" style="margin-right: 20px; width:50px;">
+        <div class="dropdown">
+            <img ng-if="showSerbian" data-toggle="dropdown" class="img_styleFlag" src="images/british.png" >
+            <img ng-if="showEnglish" data-toggle="dropdown" class="img_styleFlag" src="images/serbian.png" >
+          <ul class="dropdown-menu" style="width:auto;" >
+            <li ng-if="showSerbian">
+              <a ng-click="changeLanguage('sr')">
+                <img class="img_styleFlag" src="images/serbian.png" title="Serbian">
+              </a>
+            </li>
+            <li ng-if="showEnglish">
+              <a ng-click="changeLanguage('en')">
+                <img class="img_styleFlag" src="images/british.png" title="English">
+              </a>
+            </li>
+          </ul>
+        </div>
       </ul>
 
     </div>
 
-    </div>
 
+
+  </div>
 </nav>

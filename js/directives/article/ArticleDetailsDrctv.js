@@ -18,7 +18,7 @@
         this.comments = [];
         this.showComments = false;
         this.showReply = false;
-        this.errors = {};
+        ctrl.errors = {};
 
 
         this.commentDetails = {
@@ -30,34 +30,19 @@
         };
 
 
-        // TODO refreshPage - ok, has-error komentari
-        //return msg.
-        //Pogledati kako da provjeravam
-        // status http code, 200 success, 400 bad...
-        this.sendComment = function() {
 
+        this.sendComment = function() {
           CommentFactory.sendComment(this.commentDetails).then(function(response) {
-            if(response.status = true) {
-              //mozda je i nepotrebno kada se odradi ledole page?
-              ctrl.resetValues();
-              $route.reload();
-            } else {
-              // error za komentar
+            $route.reload();
+          }, function errorCallback(response){
+            console.log('error');
+            if(response.status != 200){
+              console.log(response.status);
               ctrl.errors.wrongParameters = true;
             }
-            console.log(ctrl.errors.wrongParameters);
           });
         };
 
-
-        this.resetValues = function() {
-          console.log('restart');
-          this.commentDetails.authorName = '',
-          this.commentDetails.authorEmail = '',
-          this.commentDetails.body = '',
-          this.commentDetails.articleId = '',
-          this.commentDetails.parentId = ''
-        }
 
         this.replyClick = function(parentId) {
           this.commentDetails.parentId = parentId;
@@ -71,7 +56,6 @@
 
         CommentFactory.getComments_forArtical($routeParams.id).then(function(response) {
           ctrl.comments = response.data;
-          console.log(ctrl.comments);
         });
 
 
@@ -91,7 +75,6 @@
           }
         };
 
-        // console.log(moment("20111031", "YYYYMMDD").fromNow());
 
         this.addComment = function(articleDetailsObj){
             console.log(this.commentDetails);

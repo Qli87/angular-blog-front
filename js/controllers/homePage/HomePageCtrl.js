@@ -1,26 +1,27 @@
 blogFront
-  .controller('HomePageCtrl', function($scope) {
+  .controller('HomePageCtrl', function($scope, ArticleFactory, $http) {
 
-    $scope.filteredTodos = [],
+    $scope.filteredArticles = [],
     $scope.currentPage = 1,
-    $scope.numPerPage = 2,
-    $scope.maxSize = 5;
+    $scope.numPerPage = 1,
+    $scope.maxSize = 1;
 
-    $scope.makeTodos = function() {
 
-      $scope.todos = [];
-      for (i=1;i<=1000;i++) {
-        $scope.todos.push({ text:'todo '+i, done:false});
-      }
-    };
+    ArticleFactory.getArticals().then(function(response){
+     $scope.articles = response.data;
+    });
 
-    $scope.makeTodos();
+    console.log($scope.articles);
 
-    $scope.$watch('currentPage + numPerPage', function() {
-      var begin = (($scope.currentPage - 1) * $scope.numPerPage)
-      , end = begin + $scope.numPerPage;
+    $scope.$watch('currentPage + numPerPage', function () {
+      //  ArticleFactory.getArticals().then(function(response){
+      //   $scope.articles = response.data;
 
-      $scope.filteredTodos = $scope.todos.slice(begin, end);
+        var begin = (($scope.currentPage - 1) * $scope.numPerPage)
+        , end = begin + $scope.numPerPage;
+
+        $scope.filteredArticles = $scope.articles.slice(begin, end);
+      // });
     });
 
   });

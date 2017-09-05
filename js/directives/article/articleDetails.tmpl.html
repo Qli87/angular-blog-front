@@ -8,7 +8,6 @@
       <ul class="ul_style">
         <li class="li_dateStyle_author"> {{ details.authorName }}  </li>
 
-
         <li class="li_dateStyle_date">
           <time am-time-ago="details.dateAdded" title="{{ details.dateAdded | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}"> </time>
         </li>
@@ -56,16 +55,16 @@
                 <input class="form-control inputText_style" ng-hide="true" name="parentId" ng-model="articledetails.commentDetails.parentId">
               </div>
               <!-- ng-class="{ 'has-error' : articledetails.errors.name }" -->
-              <div class="form-group inputText_style" ng-class="{ 'has-error' : articledetails.wrongParameters }">
+              <div class="form-group inputText_style" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
                 <!-- <label class="control-label">Name </label> -->
                 <input class="form-control inputText_style" type="text" name="name" ng-model="articledetails.commentDetails.authorName" placeholder="Name" required id="cmntName">
               </div>
-              <div class="form-group inputText_style" ng-class="{ 'has-error' : articledetails.wrongParameters }">
+              <div class="form-group inputText_style" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
                 <!-- <label class="control-label">E-mail </label> -->
                   <!-- ng-required="requireEmail" ng-pattern="emailPattern" -->
                 <input class="form-control" type="email" ng-model="articledetails.commentDetails.authorEmail" placeholder="E-mail" required>
               </div>
-              <div class="form-group" ng-class="{ 'has-error' : articledetails.wrongParameters }">
+              <div class="form-group" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
                 <textarea class="form-control textArea_style" name="comment" ng-model="articledetails.commentDetails.body" rows="3" placeholder="Comment..." required></textarea>
               </div>
               <button class="btn btn-default btn-sm btn_addComment_style" ng-click='articledetails.sendComment()'>Add comment</button>

@@ -14,9 +14,6 @@
 
         var ctrl = this;
 
-
-
-
       },
       link : function(scope, element, attrs, ctrl) {
 

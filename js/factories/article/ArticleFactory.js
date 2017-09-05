@@ -5,7 +5,6 @@
 
     var exports = {};
 
-
     exports.getArticals = function () {
       // http://www.mocky.io/v2/599b6a75120000e402d64587
       // 'http://localhost:8000/articles'
@@ -20,8 +19,6 @@
         return response.data;
       });
     };
-
-
 
 
     return exports;
