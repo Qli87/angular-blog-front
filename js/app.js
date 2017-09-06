@@ -9,6 +9,21 @@ var blogFront = angular.module('Blogfront', dependecies);
   .config(function($routeProvider, $httpProvider, $translateProvider) {
     'use strict';
 
+    // allPossible languages - start setting languages
+    var languages = [
+      {slag: 'en', trans: 'en_translations'},
+      {slag: 'sr', trans: 'sr_translations'},
+      {slag: 'rus', trans: 'rus_translations'}
+    ];
+
+    var setLanguages = function () {
+      console.log(languages.length);
+      for(var i=0; i<languages.length; i++) {
+        $translateProvider.translations(languages[i].slag, languages[i].trans);
+      }
+       $translateProvider.preferredLanguage('en');
+    }
+
     var en_translations = {
       'home' : 'Home',
       'about' : 'About',
@@ -21,14 +36,24 @@ var blogFront = angular.module('Blogfront', dependecies);
       'contact' : 'Kontakt'
     }
 
-    $translateProvider.translations('en', en_translations);
-    $translateProvider.translations('sr', sr_translations);
-    $translateProvider.preferredLanguage('en');
+    var rus_translations = {
+      'home' : 'Pocetna rus',
+      'about' : 'O nama rus',
+      'contact' : 'Kontakt rus'
+    }
+
+    setLanguages();
+
+    // $translateProvider.translations('en', en_translations);
+    // $translateProvider.translations('sr', sr_translations);
+    // $translateProvider.preferredLanguage('en');
+
+    // end setting languages
 
     $routeProvider
     .when('/articles', {
-      templateUrl: 'views/homePage/homePage.html',
-      controller: 'HomePageCtrl',
+      templateUrl: 'views/homePage/homePage.html'
+      // controller: 'HomePageCtrl',
     })
     .when('/articles/:id', {
       templateUrl: 'views/article/articleDetails.html',

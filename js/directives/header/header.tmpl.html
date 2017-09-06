@@ -39,7 +39,12 @@
 
 
       <ul class="nav navbar-nav navbar-right" style="margin-right: 20px; width:50px;">
-        <div class="dropdown">
+
+        <button ng-click="changeLanguage('sr')">Srpski </button>
+        <button ng-click="changeLanguage('en')">Engleski</button>
+        <button ng-click="changeLanguage('rus')">Ruski </button>
+
+        <!-- <div class="dropdown">
             <img ng-if="showSerbian" data-toggle="dropdown" class="img_styleFlag" src="images/british.png" >
             <img ng-if="showEnglish" data-toggle="dropdown" class="img_styleFlag" src="images/serbian.png" >
           <ul class="dropdown-menu" style="width:auto;" >
@@ -54,11 +59,12 @@
               </a>
             </li>
           </ul>
-        </div>
+        </div> -->
+
+
       </ul>
 
     </div>
-
 
 
   </div>
