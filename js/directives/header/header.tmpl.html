@@ -1,36 +1,70 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluide">
-    <div class="navbar-header">
+<nav class="navbar navbar-default navbar-fixed-top navHeigth" style="background-image: url('images/header10.jpg');">
+
+  <div class="container" ng-controller="TranslationsCtrl">
+
+    <div class="navbar-header navHeader" style="color: #fff;
+        margin-left: 190px;
+        padding-top: 10px;">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#homePage">
+      <a class="navbar-brand" href="#homePage" style="color: #fff;">
         <span class="glyphicon glyphicon-home"></span>
       </a>
     </div>
-    <div class="navbar-collapse collapse" id="navBar">
-      <ul class="nav navbar-nav navbar-center">
+    <div class="navbar-collapse collapse navCollapse" id="navBar" style="padding:12px;">
+      <ul class="nav navbar-nav navbar-center" >
         <li>
-          <a href="#homePage">Home</a>
+          <a href="#homePage" style="color: #fff; font-style: italic;">
+            {{ 'home' | translate }}
+          </a>
         </li>
         <li>
-          <a>About</a>
+          <a class="aHeader" style="color: #fff; font-style: italic;">
+            {{ 'about' | translate }}
+          </a>
         </li>
         <li>
-          <a>Contact</a>
+          <a class="aHeader" style="color: #fff; font-style: italic;">
+            {{ 'contact' | translate }}
+          </a>
         </li>
       </ul>
+
 
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="#">login</a>
-        </li>
+        <!-- <li ng-repeat="lang in languages">
+          <button ng-click='changeLanguage(lang.slag)' class="active_lng"> {{ lang.slag | translate }} </button>
+        </li> -->
+
+        <div class="dropdown" style="margin-right: 70px;">
+          <!-- <span class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="margin-top:10px;"> -->
+            <!-- <img src="images/{{getFlag}}.png" style="width:auto; height:auto;"> -->
+            <!-- Translate? -->
+            <ul class="ul_style" data-toggle="dropdown">
+              <li>
+                <img src="images/{{getFlag}}.png" style="width:40px; height:40px;">
+              </li>
+            </ul>
+            <!-- <a data-toggle="dropdown" style="margin-right:-10px;">
+              <img src="images/{{getFlag}}.png" style="width:40px; height:40px;margin-top:5px;"> -->
+              <!-- <span class="caret"></span> -->
+            <!-- </a> -->
+          </span>
+          <ul class="dropdown-menu">
+            <li ng-repeat="lang in languages" ng-class="{active: isCurrentLang(lang.slag)}">
+              <a href="" ng-click="changeLanguage(lang.slag)" style="width:auto;">{{ lang.slag | translate }}
+                <img src="images/{{lang.slag}}.png" style="height:40px; width:40px;">
+              </a>
+            </li>
+          </ul>
+        </div>
+
       </ul>
-
     </div>
 
-    </div>
 
+  </div>
 </nav>

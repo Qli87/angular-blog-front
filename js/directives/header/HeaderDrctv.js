@@ -1,4 +1,5 @@
-angular.module('Blogfront')
+// angular.module('Blogfront')
+  blogFront
   .directive('header', function() {
     'use strict';
 
@@ -9,12 +10,13 @@ angular.module('Blogfront')
       templateUrl: 'js/directives/header/header.tmpl.html',
       controllerAs: 'header',
 
-      controller: function () {
+      controller: function ($route) {
 
         var ctrl = this;
 
-
-        
+        this.reloadPage = function() {
+          $route.reload();
+        }
 
       },
       link : function(scope, element, attrs, ctrl) {

@@ -1,25 +1,129 @@
 <div class="container">
   <div class="row">
 
-    <div class="col-sm-6 col-sm-offset-3 main_divStyle">
-
+    <div class="col-sm-6 col-sm-offset-2 main_divStyle">
       <ul class="ul_style">
-        <li class="li_dateStyle_author"> {{ details.authorName }}  </li>
-        <li class="li_dateStyle_date"> {{ details.dateAdded }} </li>
-        <li>
-           <img src="{{ details.mainPic }}">
-        </li>
-        <li class="li_dateStyle_title">Title: {{ details.title }} </li>
-        <li class="li_dateStyle_body">Body: {{ details.body }} </li>
-        <li class="li_dateStyle_body"> Intro:  {{ details.intro }} </li>
-        <li>
-          <a class="li_dateStyle_comments">Comments ( {{ articledetails.comments.length}} )
-            <span class="glyphicon glyphicon-comment"></span>
-          </a>
-        </li>
-      </ul>
 
+        <!-- full details bordered -->
+        <div class="mainHomePage">
+          <div class="footer text-muted footerHomePage">
+              <li class="pHeader"> {{ details.authorName }}  </li>
+          </div>
+          <li>
+             <img src="{{ details.mainPic }}" style="width:100%;">
+          </li>
+          <li class="li_dateStyle_title">Title: {{ details.title }} </li>
+          <li class="li_dateStyle_body">Body: {{ details.body }} </li>
+          <li class="li_dateStyle_body"> Intro:  {{ details.intro }} </li>
+
+          <li class="li_dateStyle_addComment" ng-if="articledetails.comments.length > 0">
+              <div class="div_commentStyle_title">
+                <a class="li_dateStyle_comments" ng-click="articledetails.showComments_fn()">Comments ({{ articledetails.comments.length}})
+                </a>
+              </div>
+          </li>
+
+          <div class="footer text-muted footerHomePage">
+              <li class="pHeader">
+                <time am-time-ago="details.dateAdded" title="{{ details.dateAdded | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}"> </time>
+              </li>
+          </div>
+        </div>
+        <!-- end of full bordered details -->
+
+        <!-- constant tmpl.html {{ $root.constantComment }} -->
+
+        <!-- start - local commetns -->
+        <ul class="ul_style" ng-if="$root.constantComment == 'local'">
+          <li class="li_dateStyle_addComment" ng-if="articledetails.comments.length == 0" >
+            <a >No comments for this text</a>
+          </li>
+
+          <ul class="ul_style" ng-repeat = "comment in articledetails.comments" ng-if="articledetails.showComments">
+            <li class="li_dataStyle_commentList">
+              <div class="div_commentStyle_authorName">
+                {{ comment.authorName }}
+              </div>
+              <div style="padding-bottom:5px;"> {{ comment.body}}  </div>
+              <div class="div_commentStyle">
+                <ul>
+                  <li>
+                    <a ng-click="articledetails.replyClick(comment.parentId)" class="div_commentStyle_reply">
+                      Reply
+                    </a>
+                    <div class="rplCmn">
+                      <span>comments (  )</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <li>
+            <form class="form-vertical" role="form" ng-submit="articledetails.addComment(articledetails.commentDetails)" id="cmntFrm">
+              <div class="form-group inputText_style">
+                 <!-- ng-model="articledetails.commentDetails.articleId" value="comment.articleId"  kako dodijeliti vrijednost iz valua u ng-model -->
+                <input class="form-control inputText_style" ng-hide="true" name="parentId" ng-model="articledetails.commentDetails.parentId">
+              </div>
+              <!-- ng-class="{ 'has-error' : articledetails.errors.name }" -->
+              <div class="form-group inputText_style" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
+                <!-- <label class="control-label">Name </label> -->
+                <input class="form-control inputText_style" type="text" name="name" ng-model="articledetails.commentDetails.authorName" placeholder="Name" required id="cmntName">
+              </div>
+              <div class="form-group inputText_style" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
+                <!-- <label class="control-label">E-mail </label> -->
+                  <!-- ng-required="requireEmail" ng-pattern="emailPattern" -->
+                <input class="form-control" type="email" ng-model="articledetails.commentDetails.authorEmail" placeholder="E-mail" required>
+              </div>
+              <div class="form-group" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
+                <textarea class="form-control textArea_style" name="comment" ng-model="articledetails.commentDetails.body" rows="3" placeholder="Comment..." required></textarea>
+              </div>
+              <button class="btn btn-default btn-sm btn_addComment_style" ng-click='articledetails.sendComment()'>Add comment</button>
+            </form>
+          </li>
+        </ul>
+        <!-- END local comment -->
+      </ul>
     </div>
+
+
+    <!-- Control panel start -->
+    <div class="col-sm-3 mainWdgPanel">
+      <div class="card my-4">
+        <h5 class="card-header">Search box:</h5>
+        <div style="padding:15px;">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for title">
+            <span class="input-group-btn">
+              <button class="btn btn-primary" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="paddingTop">
+        <div class="card my-4">
+          <h5 class="card-header">Social:</h5>
+          <div style="padding:15px;">
+            <div class="input-group" style="display:inline;">
+              <img src="/images/facebook.png">
+              <img src="/images/linkedin.png" style="padding-left: 10px;">
+              <img src="/images/twitter.png" style="padding-left: 10px;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="paddingTop">
+        <div class="card my-4">
+          <h5 class="card-header">Widgets</h5>
+          <div style="padding:15px;">
+            <div class="input-group">
+              <p>Widgets for blog</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- control panel end -->
+
 
   </div>
 </div>
