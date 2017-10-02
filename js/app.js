@@ -6,7 +6,19 @@ var blogFront = angular.module('Blogfront', dependecies);
 
 // angular.module('Blogfront', dependecies)
   blogFront
-  .config(function($routeProvider, $translateProvider, $windowProvider, ngMetaProvider) {
+  .config(function($routeProvider, $translateProvider, $windowProvider, ngMetaProvider, $provide) {
+
+
+
+    $provide.service('translationService', function ($http) {
+      this.test = function() {
+        $http.get('http://localhost:8000/articles').then(function (response){
+        console.log('translation service works!');
+        });
+      }
+    });
+
+
 
     // default language for our website
     var defaultLang = 'en';
@@ -63,7 +75,7 @@ var blogFront = angular.module('Blogfront', dependecies);
 
 
     // main function to inject all translations objects into trasnaltion provider
-    var setAllLanguages = function (CommentFactory) {
+    var setAllLanguages = function () {
       for(var i=0; i<languages.length; i++) {
         $translateProvider.translations(languages[i].slag, languages[i].trans);
       }
@@ -74,8 +86,10 @@ var blogFront = angular.module('Blogfront', dependecies);
     $routeProvider
     .when('/articles', {
       templateUrl: 'views/homePage/homePage.html',
-      meta : {
-        description: 'Home page'
+      resolve : {
+        data : function (translationService) {
+          translationService.test();
+        }
       }
       // controller: 'HomePageCtrl',
     })
@@ -86,6 +100,4 @@ var blogFront = angular.module('Blogfront', dependecies);
     .otherwise({
       redirectTo: '/articles'
     });
-
-
 });
