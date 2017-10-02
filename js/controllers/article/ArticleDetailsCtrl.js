@@ -12,7 +12,9 @@
         ngMeta.setTitle($scope.details.title);
         ngMeta.setTag('description', $scope.details.intro);
         ngMeta.setTag('authorName', $scope.details.authorName);
+        ngMeta.setTag('keywords', $scope.details.tags);
         //end meta tags
+
       });
 
 

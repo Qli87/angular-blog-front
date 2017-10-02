@@ -1,5 +1,6 @@
 blogFront
-  .controller('HomePageCtrl', function($scope, ArticleFactory, $http, $route, $window, ngMeta) {
+  .controller('HomePageCtrl', function($scope, ArticleFactory, $http, $route, $window, ngMeta, HOME_PAGE_TITLE, HOME_PAGE_KEYWORDS) {
+    'use strict';
 
     $scope.filteredArticles = [],
     $scope.currentPage = 1,
@@ -15,11 +16,10 @@ blogFront
     this.paginationDetails = [];
 
     //initializing meta tags, set title for home page
-    //TODO keywords, desc for home page
     ngMeta.init();
-    ngMeta.setTitle('Blog');
+    ngMeta.setTitle(HOME_PAGE_TITLE);
+    ngMeta.setTag('keywords', HOME_PAGE_KEYWORDS);
     // end meta tags
-
 
     //function whitch react on currentPage change, and calculate begin and end of list
     //NOTE should be implemented maxSize for pagination

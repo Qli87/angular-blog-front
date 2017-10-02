@@ -6,3 +6,5 @@ angular.module('CONFIGURATION', [])
   .constant('ADD_COMMENT', 'http://localhost:8000/comments')
   // choose a type od comments, local or disqus
   .constant('COMMENTS', 'local')
+  .constant('HOME_PAGE_TITLE', 'Blog')
+  .constant('HOME_PAGE_KEYWORDS', 'blog')
