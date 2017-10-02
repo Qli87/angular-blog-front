@@ -1,12 +1,12 @@
 //providers
 //['angularMoment']
 
-var dependecies = ['ngRoute', 'CONFIGURATION', 'angularMoment',  'ui.bootstrap', 'pascalprecht.translate', 'ngDisqus'];
+var dependecies = ['ngRoute', 'CONFIGURATION', 'angularMoment',  'ui.bootstrap', 'pascalprecht.translate', 'ngDisqus', 'ngMeta'];
 var blogFront = angular.module('Blogfront', dependecies);
 
 // angular.module('Blogfront', dependecies)
   blogFront
-  .config(function($routeProvider, $translateProvider, $windowProvider) {
+  .config(function($routeProvider, $translateProvider, $windowProvider, ngMetaProvider) {
 
     // default language for our website
     var defaultLang = 'en';
@@ -63,7 +63,7 @@ var blogFront = angular.module('Blogfront', dependecies);
 
 
     // main function to inject all translations objects into trasnaltion provider
-    var setAllLanguages = function () {
+    var setAllLanguages = function (CommentFactory) {
       for(var i=0; i<languages.length; i++) {
         $translateProvider.translations(languages[i].slag, languages[i].trans);
       }
@@ -73,7 +73,10 @@ var blogFront = angular.module('Blogfront', dependecies);
 
     $routeProvider
     .when('/articles', {
-      templateUrl: 'views/homePage/homePage.html'
+      templateUrl: 'views/homePage/homePage.html',
+      meta : {
+        description: 'Home page'
+      }
       // controller: 'HomePageCtrl',
     })
     .when('/articles/:id', {
