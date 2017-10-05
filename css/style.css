@@ -179,6 +179,20 @@ a:hover {
   line-height: 1.5;
   border-radius: 3px;
 }
+
+.footerHomePage2 {
+  /*background-color: #e5e5ff;*/
+  background-color: #7f0000;
+  height: 30px;
+  border-bottom: 1px solid #7f0000;
+  border-right: 1px solid #7f0000;
+  border-left: 5px solid #7f0000;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px;
+}
+
+
 .pFotter {
   margin-left: 20px;
   padding-top:6px;
@@ -203,6 +217,12 @@ a:hover {
 .btn-primary {
   color: #fff;
   background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary2 {
+  color: #fff;
+  background-color: #7f0000;
   border-color: #007bff;
 }
 
@@ -246,6 +266,19 @@ a:hover {
   /*background-color: #e5e5ff;*/
   /*background-color: #f1f1f1;*/
   background-color: #286090;
+  color: white;
+  font-style: italic;
+  border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.card-header {
+  padding: 1.25rem 1.25rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  /*background-color: rgba(0,0,0,.03);*/
+  /*background-color: #e5e5ff;*/
+  /*background-color: #f1f1f1;*/
+  background-color: #7f0000;
   color: white;
   font-style: italic;
   border-bottom: 1px solid rgba(0,0,0,.125);

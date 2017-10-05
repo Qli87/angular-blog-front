@@ -30,12 +30,5 @@
     };
 
 
-    exports.testFunction = function () {
-      return $http.get('http://localhost:8000/articles').then(function(response){
-          return response.data;
-      });
-    };
-
-
     return exports;
   }]);

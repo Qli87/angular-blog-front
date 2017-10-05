@@ -8,12 +8,12 @@ var blogFront = angular.module('Blogfront', dependecies);
   blogFront
   .config(function($routeProvider, $translateProvider, $windowProvider, ngMetaProvider, $provide) {
 
-
-
-    $provide.service('translationService', function ($http) {
+    //get translations from database
+    $provide.service('translationService', function ($http, GET_TRANSLATIONS) {
       this.test = function() {
-        $http.get('http://localhost:8000/articles').then(function (response){
-        console.log('translation service works!');
+        $http.get(GET_TRANSLATIONS).then(function (response){
+          console.log(response);
+          console.log('translation service works!');
         });
       }
     });
