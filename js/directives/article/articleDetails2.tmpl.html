@@ -6,7 +6,7 @@
 
         <!-- full details bordered -->
         <div class="mainHomePage">
-          <div class="footer text-muted footerHomePage">
+          <div class="footer text-muted footerHomePage2">
               <li class="pHeader"> {{ details.authorName }}  </li>
           </div>
           <li>
@@ -18,12 +18,12 @@
 
           <li class="li_dateStyle_addComment" ng-if="articledetails.comments.length > 0">
               <div class="div_commentStyle_title">
-                <a class="li_dateStyle_comments" ng-click="articledetails.showComments_fn()">Comments ({{ articledetails.comments.length}})
+                <a class="li_dateStyle_comments2" ng-click="articledetails.showComments_fn()">Comments ({{ articledetails.comments.length}})
                 </a>
               </div>
           </li>
 
-          <div class="footer text-muted footerHomePage">
+          <div class="footer text-muted footerHomePage2">
               <li class="pHeader">
                 <time am-time-ago="details.dateAdded" title="{{ details.dateAdded | amDateFormat: 'dddd, MMMM Do YYYY, h:mm a' }}"> </time>
               </li>
@@ -78,7 +78,9 @@
               <div class="form-group" ng-class="{ 'has-error' : articledetails.errors.wrongParameters }">
                 <textarea class="form-control textArea_style" name="comment" ng-model="articledetails.commentDetails.body" rows="3" placeholder="Comment..." required></textarea>
               </div>
-              <button class="btn btn-default btn-sm btn_addComment_style" ng-click='articledetails.sendComment()'>Add comment</button>
+              <div class="div_btnAddCmt">
+                <button class="btn btn-sm btn_addComment_style2" ng-click='articledetails.sendComment()'>Add comment</button>
+              </div>
             </form>
           </li>
         </ul>
@@ -90,19 +92,19 @@
     <!-- Control panel start -->
     <div class="col-sm-3 mainWdgPanel">
       <div class="card my-4">
-        <h5 class="card-header">Search box:</h5>
+        <h5 class="card-header2">Search box:</h5>
         <div style="padding:15px;">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Search for title">
             <span class="input-group-btn">
-              <button class="btn btn-primary" type="button">Go!</button>
+              <button class="btn btn-primary2" type="button">Go!</button>
             </span>
           </div>
         </div>
       </div>
       <div class="paddingTop">
         <div class="card my-4">
-          <h5 class="card-header">Social:</h5>
+          <h5 class="card-header2">Social:</h5>
           <div style="padding:15px;">
             <div class="input-group" style="display:inline;">
               <img src="/images/facebook.png">
@@ -114,7 +116,7 @@
       </div>
       <div class="paddingTop">
         <div class="card my-4">
-          <h5 class="card-header">Widgets</h5>
+          <h5 class="card-header2">Widgets</h5>
           <div style="padding:15px;">
             <div class="input-group">
               <p>Widgets for blog</p>

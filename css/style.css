@@ -22,6 +22,21 @@
   padding: 10px;
 }
 
+.ul_style3 {
+  list-style-type: none;
+  padding-top: 5px;
+}
+
+.divCenter3 {
+  display:inline;
+  margin-left: 200px;
+}
+
+.img3 {
+  padding-left: 10px;
+  padding-top: 6px;
+}
+
 .li_dateStyle_date {
   font-size: 9px;
 }
@@ -53,6 +68,14 @@
   font-family: sans-serif;
 }
 
+.li_dateStyle_comments2 {
+  font-size: : 20px;
+  font-style: italic;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #7f0000;
+}
+
 .li_dateStyle_addComment {
   padding-top:20px;
   padding-bottom:20px;
@@ -68,6 +91,21 @@
 .btn_addComment_style {
   left: 0;
   float: right;
+  background-color: #286090;
+  color: #fff;
+  font-style: italic;
+}
+
+.btn_addComment_style2 {
+  left: 0;
+  float: right;
+  background-color: #7f0000;
+  color: #fff;
+  font-style: italic;
+}
+
+.div_btnAddCmt {
+  margin-bottom: 30px;
 }
 
 .inputText_style {
@@ -86,6 +124,11 @@
 }
 
 .div_commentStyle_title {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #f1f1f1;
+}
+
+.div_commentStyle_title2 {
   padding-bottom: 5px;
   border-bottom: 2px solid #f1f1f1;
 }
@@ -167,6 +210,30 @@ a:hover {
   padding: 5px;
 }
 
+.tmpl3FontSize {
+  font-size: 16px;
+}
+.tmpl3Author {
+  background-color: #f1f1f1;
+  margin-bottom: 15px;
+  text-align: center;
+  padding: 3px;
+}
+
+.ddLang {
+  margin-right: -40px;
+  /*padding-top: 5px;*/
+}
+
+.ddLi {
+  display: inline-block;
+}
+
+.divCenter {
+  width: 300px;
+  /*padding-top: 7px;
+  margin-left: 200px;*/
+}
 
 .footerHomePage {
   /*background-color: #e5e5ff;*/
@@ -190,6 +257,15 @@ a:hover {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
+}
+
+.btn_addComment {
+  border-bottom: 1px solid #286090;
+  border-right: 1px solid #286090;
+  border-left: 5px solid #286090;
+  background-color: #286090;
+  color: #fff;
+  font-style: italic;
 }
 
 
@@ -271,7 +347,7 @@ a:hover {
   border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
-.card-header {
+.card-header2 {
   padding: 1.25rem 1.25rem;
   margin-bottom: 0;
   margin-top: 0;

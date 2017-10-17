@@ -28,7 +28,6 @@ blogFront
        var end = 0;
        ArticleFactory.getArticles($scope.numPerPage, $scope.currentPage, $scope.sort).then(function(response){
        $scope.articles = response.data.articles;
-       console.log($scope.articles);
        ctrl.paginationDetails = response.data.pagination;
 
        //NOTE calculate a total number per_page

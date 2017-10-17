@@ -1,0 +1,90 @@
+<nav class="navbar navbar-default navbar-fixed-top navHeigth" style="background-image: url('images/header10.jpg');">
+
+  <div class="container" ng-controller="TranslationsCtrl">
+
+    <div class="navbar-header navHeader" style="color: #fff;
+        padding-top: 10px;">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navBar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#homePage" style="color: #fff;">
+        <span class="glyphicon glyphicon-home"></span>
+      </a>
+    </div>
+    <div class="navbar-collapse collapse navCollapse" id="navBar" style="padding:12px;">
+      <ul class="nav navbar-nav navbar-center" >
+        <li>
+          <a href="#homePage" style="color: #fff; font-style: italic;">
+            {{ 'home' | translate }}
+          </a>
+        </li>
+        <li>
+          <a class="aHeader" style="color: #fff; font-style: italic;">
+            {{ 'about' | translate }}
+          </a>
+        </li>
+        <li>
+          <a class="aHeader" style="color: #fff; font-style: italic;">
+            {{ 'contact' | translate }}
+          </a>
+        </li>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <!-- <li ng-repeat="lang in languages">
+          <button ng-click='changeLanguage(lang.slag)' class="active_lng"> {{ lang.slag | translate }} </button>
+        </li> -->
+
+        <div class="dropdown ddLang">
+          <!-- <span class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" style="margin-top:10px;"> -->
+            <!-- <img src="images/{{getFlag}}.png" style="width:auto; height:auto;"> -->
+            <!-- Translate? -->
+
+            <ul class="ul_style3" data-toggle="dropdown">
+
+              <li class="ddLi">
+                <div class="input-group">
+                  <img src="/images/facebook.png" class="img3">
+                  <img src="/images/linkedin.png" class="img3">
+                  <img src="/images/twitter.png" class="img3">
+                </div>
+              </li>
+
+              <li class="ddLi">
+                <div class="input-group divCenter">
+                  <input type="text" class="form-control" placeholder="Search for title">
+                  <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button">Go!</button>
+                  </span>
+                </div>
+              </li>
+
+              <li class="ddLi">
+                <img src="images/{{getFlag}}.png" style="width:50px; height:50px; margin-top: -20px;">
+              </li>
+
+            </ul>
+            <!-- <a data-toggle="dropdown" style="margin-right:-10px;">
+              <img src="images/{{getFlag}}.png" style="width:40px; height:40px;margin-top:5px;"> -->
+              <!-- <span class="caret"></span> -->
+            <!-- </a> -->
+          </span>
+          <ul class="dropdown-menu">
+            <li ng-repeat="lang in languages" ng-class="{active: isCurrentLang(lang.slag)}">
+              <a href="" ng-click="changeLanguage(lang.slag)" style="width:auto;">{{ lang.slag | translate }}
+                <img src="images/{{lang.slag}}.png" style="height:40px; width:40px;">
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </ul>
+    </div>
+
+
+  </div>
+</nav>

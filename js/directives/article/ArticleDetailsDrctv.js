@@ -1,6 +1,6 @@
 // angular.module('Blogfront')
   blogFront
-  .directive('articledetails', ['COMMENTS', '$rootScope',  function(COMMENTS, $rootScope) {
+  .directive('articledetails', ['COMMENTS', '$rootScope', 'TEMPLATE_NUMBER', function(COMMENTS, $rootScope, TEMPLATE_NUMBER) {
     'use strict';
 
     return {
@@ -9,7 +9,10 @@
       scope: {
         details : '='
       },
-      templateUrl: 'js/directives/article/articleDetails.tmpl.html',
+      // templateUrl: 'js/directives/article/articleDetails.tmpl.html',
+      templateUrl: function () {
+        return 'js/directives/article/articleDetails'+TEMPLATE_NUMBER+'.tmpl.html'
+      },
       controllerAs: 'articledetails',
 
       controller: function ($filter, ArticleFactory, $scope, moment, CommentFactory,

@@ -9,15 +9,22 @@ var blogFront = angular.module('Blogfront', dependecies);
   .config(function($routeProvider, $translateProvider, $windowProvider, ngMetaProvider, $provide) {
 
     //get translations from database
+    //NOTE should
     $provide.service('translationService', function ($http, GET_TRANSLATIONS) {
       this.test = function() {
-        $http.get(GET_TRANSLATIONS).then(function (response){
-          console.log(response);
+        var config = {
+          headers : {
+            "X-Auth-Key": 'admin',
+            'X-Auth-Secret' : 'sifra2017'
+          }
+        }
+        $http.get(GET_TRANSLATIONS, config).then(function (response){
           console.log('translation service works!');
+          console.log(response);
         });
       }
     });
-
+    //end of translations
 
 
     // default language for our website
@@ -78,6 +85,7 @@ var blogFront = angular.module('Blogfront', dependecies);
     var setAllLanguages = function () {
       for(var i=0; i<languages.length; i++) {
         $translateProvider.translations(languages[i].slag, languages[i].trans);
+        // console.log($translateProvider.translations());
       }
        $translateProvider.preferredLanguage(defaultLang);
     }();

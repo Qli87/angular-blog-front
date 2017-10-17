@@ -9,4 +9,5 @@ angular.module('CONFIGURATION', [])
   // end of comments
   .constant('HOME_PAGE_TITLE', 'Blog')
   .constant('HOME_PAGE_KEYWORDS', 'blog')
-  .constant('TEMPLATE_NUMBER', '2')
+  //choose template 1 or 2
+  .constant('TEMPLATE_NUMBER', '1')

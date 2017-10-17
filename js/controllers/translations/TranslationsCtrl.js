@@ -24,7 +24,6 @@ blogFront
       $window.localStorage.setItem('slag', slag);
       $translate.use(slag);
       $window.location.reload();
-      // $route.reload();
       //reload header
     };
 
